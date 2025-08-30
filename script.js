@@ -6,6 +6,7 @@ const $$ = (selector) => document.querySelectorAll(selector);
 let isStoriesPaused = false;
 const storiesTrack = $('#storiesTrack');
 const pausePlayBtn = $('#pausePlayBtn');
+const storiesSlider = $('.stories-slider');
 
 if (pausePlayBtn && storiesTrack) {
     pausePlayBtn.addEventListener('click', () => {
@@ -17,6 +18,19 @@ if (pausePlayBtn && storiesTrack) {
         } else {
             storiesTrack.style.animationPlayState = 'running';
             pausePlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+    });
+}
+
+// Add hover functionality to pause/resume stories animation
+if (storiesSlider && storiesTrack) {
+    storiesSlider.addEventListener('mouseenter', () => {
+        storiesTrack.style.animationPlayState = 'paused';
+    });
+    
+    storiesSlider.addEventListener('mouseleave', () => {
+        if (!isStoriesPaused) {
+            storiesTrack.style.animationPlayState = 'running';
         }
     });
 }
