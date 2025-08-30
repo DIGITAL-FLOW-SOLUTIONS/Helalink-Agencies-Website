@@ -2,21 +2,24 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-// Mobile Navigation Toggle
-const navToggle = $('#navToggle');
-const navMenu = $('#navMenu');
-
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    $$('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
+// Navigation Dots Functionality
+const dots = $$('.dot');
+if (dots.length > 0) {
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            // Remove active class from all dots
+            dots.forEach(d => d.classList.remove('active'));
+            // Add active class to clicked dot
+            dot.classList.add('active');
+            
+            // Scroll to corresponding section
+            const sections = $$('section');
+            if (sections[index]) {
+                sections[index].scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
 }
@@ -27,7 +30,7 @@ $$('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = $(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+            const offsetTop = target.offsetTop;
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -35,134 +38,6 @@ $$('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Navbar Background on Scroll
-window.addEventListener('scroll', () => {
-    const navbar = $('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Blog Search Functionality
-const searchInput = $('#searchInput');
-const blogCards = $$('.blog-card');
-
-if (searchInput && blogCards.length > 0) {
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        
-        blogCards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const content = card.querySelector('p').textContent.toLowerCase();
-            const category = card.dataset.category.toLowerCase();
-            
-            if (title.includes(searchTerm) || content.includes(searchTerm) || category.includes(searchTerm)) {
-                card.style.display = 'block';
-                card.style.animation = 'fadeInUp 0.5s ease forwards';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-}
-
-// Registration Form Handler
-const registrationForm = $('#registrationForm');
-if (registrationForm) {
-    registrationForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(registrationForm);
-        const data = {
-            fullName: $('#fullName').value,
-            email: $('#email').value,
-            phone: $('#phone').value,
-            county: $('#county').value
-        };
-        
-        // Basic validation
-        if (!data.fullName || !data.email || !data.phone || !data.county) {
-            showNotification('Please fill in all fields', 'error');
-            return;
-        }
-        
-        if (!isValidEmail(data.email)) {
-            showNotification('Please enter a valid email address', 'error');
-            return;
-        }
-        
-        if (!isValidPhone(data.phone)) {
-            showNotification('Please enter a valid phone number', 'error');
-            return;
-        }
-        
-        // Show loading state
-        const submitBtn = registrationForm.querySelector('.btn');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        submitBtn.disabled = true;
-        
-        try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            showNotification('Registration successful! Welcome to Helalink Agencies. Check your email for activation instructions.', 'success');
-            registrationForm.reset();
-        } catch (error) {
-            showNotification('Registration failed. Please try again later.', 'error');
-        } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-}
-
-// Contact Form Handler
-const contactForm = $('#contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(contactForm);
-        const name = formData.get('name') || contactForm.querySelector('input[type="text"]').value;
-        const email = formData.get('email') || contactForm.querySelector('input[type="email"]').value;
-        const message = formData.get('message') || contactForm.querySelector('textarea').value;
-        
-        if (!name || !email || !message) {
-            showNotification('Please fill in all fields', 'error');
-            return;
-        }
-        
-        if (!isValidEmail(email)) {
-            showNotification('Please enter a valid email address', 'error');
-            return;
-        }
-        
-        // Show loading state
-        const submitBtn = contactForm.querySelector('.btn');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            showNotification('Message sent successfully! We will get back to you soon.', 'success');
-            contactForm.reset();
-        } catch (error) {
-            showNotification('Failed to send message. Please try again later.', 'error');
-        } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-}
 
 // Intersection Observer for Animations
 const observerOptions = {
@@ -173,273 +48,201 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target);
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-const animateElements = $$('.service-card, .blog-card, .advantage-card, .contact-item');
-animateElements.forEach(el => observer.observe(el));
-
-// Service Cards Hover Effects
-$$('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
-    });
+// Observe sections for animation
+const sections = $$('section');
+sections.forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(section);
 });
 
-// Blog Cards Hover Effects
-$$('.blog-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        const img = card.querySelector('.blog-image img');
-        if (img) {
-            img.style.transform = 'scale(1.1)';
-        }
-    });
+// Update active dot based on scroll position
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY + 200;
+    const sections = $$('section');
+    const dots = $$('.dot');
     
-    card.addEventListener('mouseleave', () => {
-        const img = card.querySelector('.blog-image img');
-        if (img) {
-            img.style.transform = 'scale(1)';
-        }
-    });
-});
-
-// Statistics Counter Animation
-const statNumbers = $$('.stat-number');
-const animateStats = () => {
-    statNumbers.forEach(stat => {
-        const target = parseInt(stat.textContent.replace(/[^0-9]/g, ''));
-        const increment = target / 50;
-        let current = 0;
+    sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
         
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[index]) {
+                dots[index].classList.add('active');
             }
-            
-            if (stat.textContent.includes('Ksh')) {
-                stat.textContent = `Ksh ${Math.floor(current)}`;
-            } else if (stat.textContent.includes('/')) {
-                stat.textContent = `${Math.floor(current)}/7`;
-            } else {
-                stat.textContent = Math.floor(current);
-            }
-        }, 20);
+        }
     });
+});
+
+// Image Hover Effects
+$$('.section-image img').forEach(img => {
+    img.addEventListener('mouseenter', () => {
+        img.style.transform = 'scale(1.05)';
+        img.style.transition = 'transform 0.3s ease';
+    });
+    
+    img.addEventListener('mouseleave', () => {
+        img.style.transform = 'scale(1)';
+    });
+});
+
+// Add loading animation to images
+$$('img').forEach(img => {
+    img.addEventListener('load', () => {
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+    });
+    
+    // Set initial loading state
+    img.style.opacity = '0';
+    img.style.transform = 'scale(0.9)';
+    img.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+});
+
+// Mobile menu toggle (if needed in future)
+const createMobileMenu = () => {
+    const navLinks = $('.nav-links');
+    if (window.innerWidth <= 768 && navLinks) {
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.gap = '10px';
+    }
 };
 
-// Trigger stats animation when hero section is visible
-const heroSection = $('.hero');
-if (heroSection) {
-    const heroObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(animateStats, 500);
-                heroObserver.unobserve(entry.target);
-            }
-        });
-    });
-    
-    heroObserver.observe(heroSection);
-}
+// Handle window resize
+window.addEventListener('resize', createMobileMenu);
 
-// Utility Functions
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function isValidPhone(phone) {
-    // Kenyan phone number validation (simplified)
-    const phoneRegex = /^(\+254|0)?[17]\d{8}$/;
-    return phoneRegex.test(phone.replace(/\s/g, ''));
-}
-
-function showNotification(message, type = 'info') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas ${getNotificationIcon(type)}"></i>
-            <span>${message}</span>
-            <button class="notification-close">&times;</button>
-        </div>
-    `;
-    
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 90px;
-        right: 20px;
-        z-index: 10000;
-        max-width: 400px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        border-left: 4px solid ${getNotificationColor(type)};
-    `;
-    
-    const content = notification.querySelector('.notification-content');
-    content.style.cssText = `
-        padding: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-    `;
-    
-    const icon = notification.querySelector('i');
-    icon.style.color = getNotificationColor(type);
-    
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.style.cssText = `
-        background: none;
-        border: none;
-        font-size: 1.2rem;
-        cursor: pointer;
-        margin-left: auto;
-        color: #999;
-    `;
-    
-    // Add to page
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Auto remove after 5 seconds
-    const autoRemove = setTimeout(() => {
-        removeNotification(notification);
-    }, 5000);
-    
-    // Close button handler
-    closeBtn.addEventListener('click', () => {
-        clearTimeout(autoRemove);
-        removeNotification(notification);
-    });
-}
-
-function removeNotification(notification) {
-    notification.style.transform = 'translateX(100%)';
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
-        }
-    }, 300);
-}
-
-function getNotificationIcon(type) {
-    const icons = {
-        success: 'fa-check-circle',
-        error: 'fa-exclamation-circle',
-        warning: 'fa-exclamation-triangle',
-        info: 'fa-info-circle'
-    };
-    return icons[type] || icons.info;
-}
-
-function getNotificationColor(type) {
-    const colors = {
-        success: '#28a745',
-        error: '#dc3545',
-        warning: '#ffc107',
-        info: '#17a2b8'
-    };
-    return colors[type] || colors.info;
-}
-
-// Service card click handlers for better mobile interaction
-$$('.service-card').forEach(card => {
-    card.addEventListener('click', () => {
-        const earnings = card.querySelector('.service-earnings');
-        if (earnings) {
-            earnings.style.animation = 'pulse 0.6s ease-in-out';
-            setTimeout(() => {
-                earnings.style.animation = '';
-            }, 600);
-        }
-    });
-});
-
-// Add pulse animation to CSS via JavaScript
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
-`;
-document.head.appendChild(style);
-
-// Lazy loading for images
-const images = $$('img');
-const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-            }
-            imageObserver.unobserve(img);
-        }
-    });
-});
-
-images.forEach(img => {
-    if (img.dataset.src) {
-        imageObserver.observe(img);
-    }
-});
-
-// Initialize everything when DOM is loaded
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Helalink Agencies website loaded successfully!');
     
-    // Add some initial animations
+    // Set first dot as active initially
+    const firstDot = $('.dot');
+    if (firstDot) {
+        firstDot.classList.add('active');
+    }
+    
+    // Initialize mobile menu
+    createMobileMenu();
+    
+    // Add entrance animations
     setTimeout(() => {
-        const heroText = $('.hero-text');
-        if (heroText) {
-            heroText.classList.add('slide-in-left');
-        }
-        
-        const heroImage = $('.hero-image');
-        if (heroImage) {
-            heroImage.classList.add('slide-in-right');
+        const heroSection = $('.hero-section');
+        if (heroSection) {
+            heroSection.style.opacity = '1';
+            heroSection.style.transform = 'translateY(0)';
         }
     }, 100);
 });
 
-// Handle browser back/forward buttons
-window.addEventListener('popstate', (e) => {
-    // Handle navigation state changes if needed
+// Parallax effect for hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroImage = $('.hero-image img');
+    
+    if (heroImage && scrolled < window.innerHeight) {
+        heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
 });
 
-// Performance monitoring
+// Add click effects to sections
+$$('.section-container').forEach(container => {
+    container.addEventListener('click', () => {
+        container.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            container.style.transform = 'scale(1)';
+        }, 150);
+    });
+    
+    container.style.transition = 'transform 0.15s ease';
+});
+
+// Performance optimization
 if ('requestIdleCallback' in window) {
     requestIdleCallback(() => {
-        // Preload critical resources when browser is idle
-        const criticalImages = [
-            'https://pixabay.com/get/gd39f755af544cc70f1f5a2e91dc7ad8621109b146404281e691ca929431a172df17342f2804279bfe8db2e12403886751ab7334fa35695a74801aecb88821924_1280.jpg'
+        // Preload images when browser is idle
+        const imageUrls = [
+            'https://images.pexels.com/photos/3756678/pexels-photo-3756678.jpeg',
+            'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg',
+            'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg',
+            'https://images.pexels.com/photos/3760790/pexels-photo-3760790.jpeg',
+            'https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg'
         ];
         
-        criticalImages.forEach(src => {
+        imageUrls.forEach(url => {
             const img = new Image();
-            img.src = src;
+            img.src = url + '?auto=compress&cs=tinysrgb&w=500';
+        });
+    });
+}
+
+// Add keyboard navigation for accessibility
+document.addEventListener('keydown', (e) => {
+    const activeDot = $('.dot.active');
+    const dots = $$('.dot');
+    const currentIndex = Array.from(dots).indexOf(activeDot);
+    
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        const nextIndex = (currentIndex + 1) % dots.length;
+        dots[nextIndex].click();
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prevIndex = (currentIndex - 1 + dots.length) % dots.length;
+        dots[prevIndex].click();
+    }
+});
+
+// Add visual feedback for interactive elements
+$$('.nav-item, .nav-register-btn, .dot').forEach(element => {
+    element.addEventListener('mouseenter', () => {
+        element.style.transform = 'translateY(-2px)';
+        element.style.transition = 'transform 0.2s ease';
+    });
+    
+    element.addEventListener('mouseleave', () => {
+        element.style.transform = 'translateY(0)';
+    });
+});
+
+// Initialize smooth scrolling behavior
+if (!CSS.supports('scroll-behavior', 'smooth')) {
+    // Polyfill for browsers that don't support scroll-behavior
+    $$('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = $(this.getAttribute('href'));
+            if (target) {
+                const targetPosition = target.offsetTop;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let start = null;
+                
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+                
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+                
+                requestAnimationFrame(animation);
+            }
         });
     });
 }
