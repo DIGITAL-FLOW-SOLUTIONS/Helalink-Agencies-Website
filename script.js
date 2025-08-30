@@ -102,14 +102,17 @@ if (dots.length > 0) {
 // Smooth Scrolling for Navigation Links
 $$('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = $(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+            e.preventDefault();
+            const target = $(href);
+            if (target) {
+                const offsetTop = target.offsetTop;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 });
