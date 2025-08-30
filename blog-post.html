@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Helalink Agencies</title>
+    <meta name="description" content="Read the latest articles about online earning opportunities and success tips from Helalink Agencies.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .blog-post-header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .blog-post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            line-height: 1.8;
+        }
+        
+        .blog-post-content h1 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .blog-post-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            color: #666;
+        }
+        
+        .blog-post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .blog-post-content h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .blog-post-content h3 {
+            color: var(--dark-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+        
+        .blog-post-content ul,
+        .blog-post-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .blog-post-content li {
+            margin-bottom: 0.8rem;
+            color: #444;
+        }
+        
+        .highlight-box {
+            background: var(--light-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .highlight-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .earnings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .earnings-table th,
+        .earnings-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .earnings-table th {
+            background: var(--gradient-primary);
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .earnings-table tr:hover {
+            background: var(--light-color);
+        }
+        
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-blog:hover {
+            transform: translateX(-5px);
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--light-color);
+            border-radius: 15px;
+        }
+        
+        .share-button {
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .share-facebook { background: #3b5998; }
+        .share-twitter { background: #1da1f2; }
+        .share-whatsapp { background: #25d366; }
+        .share-telegram { background: #0088cc; }
+        
+        .share-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .related-posts {
+            background: var(--light-color);
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+        
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-post-header {
+                padding: 100px 0 60px;
+            }
+            
+            .blog-post-content {
+                padding: 40px 20px;
+            }
+            
+            .blog-post-content h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-post-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .share-buttons {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-link"></i>
+                <span>Helalink Agencies</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#blog" class="nav-link">Blog</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="index.html#register" class="nav-cta">Register Now</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Post Header -->
+    <section class="blog-post-header">
+        <div class="container">
+            <h1 id="postTitle">Loading...</h1>
+            <p id="postSubtitle">Please wait while we load the content...</p>
+        </div>
+    </section>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post-content">
+        <a href="index.html#blog" class="back-to-blog">
+            <i class="fas fa-arrow-left"></i>
+            Back to Blog
+        </a>
+        
+        <h1 id="articleTitle">Loading Article...</h1>
+        
+        <div class="blog-post-meta" id="articleMeta">
+            <span><i class="fas fa-calendar"></i> <span id="articleDate">Loading...</span></span>
+            <span><i class="fas fa-user"></i> <span id="articleAuthor">Loading...</span></span>
+            <span><i class="fas fa-clock"></i> <span id="readingTime">5 min read</span></span>
+        </div>
+        
+        <div id="articleContent">
+            <div class="spinner"></div>
+        </div>
+        
+        <div class="share-buttons">
+            <h4 style="margin: 0; color: var(--dark-color); flex: 1;">Share this article:</h4>
+            <a href="#" class="share-button share-facebook" id="shareFacebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="#" class="share-button share-twitter" id="shareTwitter">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="#" class="share-button share-whatsapp" id="shareWhatsApp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="#" class="share-button share-telegram" id="shareTelegram">
+                <i class="fab fa-telegram"></i> Telegram
+            </a>
+        </div>
+    </article>
+
+    <!-- Related Posts -->
+    <section class="related-posts">
+        <div class="container">
+            <div class="section-header">
+                <h2>Related Articles</h2>
+                <p>Continue reading about online earning opportunities</p>
+            </div>
+            
+            <div class="related-posts-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://pixabay.com/get/g144981531ec4789d63ae2dd1ec99ccf40a86e90078d6229193b09a15eb1a0daf83e59171d8b72e043b8785bba4a3879abb52d0b251f59dd39673382549bd4651_1280.jpg" alt="Earning Tips">
+                        <div class="blog-category">Earning Tips</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="blog-post.html?post=daily-strategies">Daily Earning Strategies That Work</a></h3>
+                        <p>Proven methods to consistently earn Ksh 700-1000 daily with Helalink Agencies.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> August 28, 2025</span>
+                            <span><i class="fas fa-user"></i> Expert Team</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://pixabay.com/get/gb4598a819822689829e947f2a795101f0548842bfe97f0bfd3f4ba8e9e9d86b5750dcadd23bc6a6eb12184bde0ecaa2401ef34db9f91cc81ca3707c29a3a1263_1280.jpg" alt="Success Story">
+                        <div class="blog-category">Success Stories</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="blog-post.html?post=student-success">Student Earns Ksh 25,000 Monthly</a></h3>
+                        <p>How a university student balanced studies and online earning with amazing results.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> August 26, 2025</span>
+                            <span><i class="fas fa-user"></i> James Kiprotich</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://pixabay.com/get/gc83621e6c65f8d2b39eed55bec7c1f69b80234bf165088e860b0bf4f6c088d24eddba7f4fac93b413a521cda8bd6afb767c573f0fd2e80f1be7a584855fb043b_1280.jpg" alt="Tutorial">
+                        <div class="blog-category">Tutorials</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="blog-post.html?post=advanced-techniques">Advanced Earning Techniques</a></h3>
+                        <p>Take your earnings to the next level with these advanced strategies and tips.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> August 24, 2025</span>
+                            <span><i class="fas fa-user"></i> Technical Team</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-link"></i>
+                        <span>Helalink Agencies</span>
+                    </div>
+                    <p>Your trusted partner for online earning opportunities in Kenya. Start your journey to financial freedom today.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Earning Methods</h4>
+                    <ul>
+                        <li><a href="#">Trivia Quiz</a></li>
+                        <li><a href="#">Click Ads</a></li>
+                        <li><a href="#">Watch Videos</a></li>
+                        <li><a href="#">Play Games</a></li>
+                        <li><a href="#">Article Writing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Helalink Agencies. All rights reserved.</p>
+                <p>Made with ❤️ in Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Blog post content database
+        const blogPosts = {
+            'earning-tips': {
+                title: 'How to Maximize Your Daily Earnings',
+                subtitle: 'Learn the best strategies to boost your daily income',
+                author: 'Helalink Team',
+                date: 'August 25, 2025',
+                readingTime: '8 min read',
+                content: `
+                    <p>Welcome to our comprehensive guide on maximizing your daily earnings with Helalink Agencies. In this article, we'll share proven strategies that can help you consistently reach and exceed the Ksh 1000 daily target.</p>
+                    
+                    <h2>Understanding the Platform</h2>
+                    <p>Helalink Agencies offers multiple earning streams, each with its own potential for income generation. The key to maximizing earnings is understanding how to effectively utilize each opportunity.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>💡 Pro Tip</h4>
+                        <p>Start your day early and create a routine. The most successful earners treat this as a serious income source and maintain consistent daily schedules.</p>
+                    </div>
+                    
+                    <h2>Daily Earning Strategy</h2>
+                    <p>Here's a proven daily routine that can help you maximize your earnings:</p>
+                    
+                    <h3>Morning Routine (6:00 AM - 9:00 AM)</h3>
+                    <ul>
+                        <li><strong>Trivia Quiz (30 minutes):</strong> Start with 5-10 quiz sessions - Potential: Ksh 250-500</li>
+                        <li><strong>Video Watching (1 hour):</strong> Watch TikTok and YouTube videos - Potential: Ksh 150-300</li>
+                        <li><strong>Ad Clicking (30 minutes):</strong> Click through available advertisements - Potential: Ksh 100-200</li>
+                    </ul>
+                    
+                    <h3>Afternoon Session (12:00 PM - 3:00 PM)</h3>
+                    <ul>
+                        <li><strong>Social Media Content (1 hour):</strong> Facebook and Instagram reels - Potential: Ksh 100-200</li>
+                        <li><strong>Gaming Session (1 hour):</strong> Play chess or draughts - Potential: Ksh 200-400</li>
+                        <li><strong>Spinning Activity (15 minutes):</strong> Daily spins for bonuses - Potential: Ksh 25-500</li>
+                    </ul>
+                    
+                    <h3>Evening Activities (6:00 PM - 9:00 PM)</h3>
+                    <ul>
+                        <li><strong>Movie Watching (2 hours):</strong> Enjoy entertainment while earning - Potential: Ksh 100-200</li>
+                        <li><strong>Article Writing (1 hour):</strong> If you have writing skills - Potential: Ksh 200-1000</li>
+                    </ul>
+                    
+                    <table class="earnings-table">
+                        <thead>
+                            <tr>
+                                <th>Activity</th>
+                                <th>Time Required</th>
+                                <th>Potential Earnings</th>
+                                <th>Difficulty Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Trivia Quiz</td>
+                                <td>30 minutes</td>
+                                <td>Ksh 250-500</td>
+                                <td>Easy</td>
+                            </tr>
+                            <tr>
+                                <td>Video Watching</td>
+                                <td>1 hour</td>
+                                <td>Ksh 150-300</td>
+                                <td>Very Easy</td>
+                            </tr>
+                            <tr>
+                                <td>Gaming</td>
+                                <td>1 hour</td>
+                                <td>Ksh 200-400</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Article Writing</td>
+                                <td>1 hour</td>
+                                <td>Ksh 200-1000</td>
+                                <td>Hard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>Advanced Tips for Higher Earnings</h2>
+                    
+                    <h3>1. Focus on High-Value Activities</h3>
+                    <p>While all activities generate income, some offer better returns on time invested. Article writing and gaming tournaments typically offer the highest earning potential.</p>
+                    
+                    <h3>2. Maintain Consistency</h3>
+                    <p>Regular daily participation often unlocks bonus opportunities and weekly agent bonuses. Consistency is key to maximizing long-term earnings.</p>
+                    
+                    <h3>3. Improve Your Skills</h3>
+                    <p>Invest time in improving your quiz knowledge, gaming skills, and writing abilities. Better performance often translates to higher earnings.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>⚠️ Important Note</h4>
+                        <p>Remember to take breaks and maintain a healthy balance. Sustainable earning comes from consistent, moderate effort rather than exhaustive daily sessions.</p>
+                    </div>
+                    
+                    <h2>Tracking Your Progress</h2>
+                    <p>Keep a daily log of your activities and earnings. This helps you:</p>
+                    <ul>
+                        <li>Identify your most profitable activities</li>
+                        <li>Optimize your time allocation</li>
+                        <li>Track progress toward your monthly goals</li>
+                        <li>Qualify for performance bonuses</li>
+                    </ul>
+                    
+                    <h2>Conclusion</h2>
+                    <p>With the right strategy and consistent effort, earning Ksh 700-1000 daily with Helalink Agencies is entirely achievable. Start with activities you enjoy most, gradually incorporate others, and always aim for continuous improvement.</p>
+                    
+                    <p>Ready to start maximizing your earnings? <a href="index.html#register" style="color: var(--primary-color); font-weight: 600;">Register with Helalink Agencies today</a> and begin your journey to financial success!</p>
+                `
+            },
+            'success-story': {
+                title: 'From Zero to Ksh 30,000 Monthly',
+                subtitle: 'A real success story from our community',
+                author: 'Mary Wanjiku',
+                date: 'August 22, 2025',
+                readingTime: '6 min read',
+                content: `
+                    <p>My name is Mary Wanjiku, and I'm a single mother of two from Nairobi. Six months ago, I was struggling to make ends meet with my small business. Today, I'm earning over Ksh 30,000 monthly through Helalink Agencies, and I want to share my journey with you.</p>
+                    
+                    <h2>The Beginning</h2>
+                    <p>Like many Kenyans, I was skeptical about online earning opportunities. I had heard stories of scams and fake promises. However, when a friend showed me her withdrawal receipts from Helalink Agencies, I decided to give it a try.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>My First Day</h4>
+                        <p>I registered with the Ksh 500 activation fee and immediately received my Ksh 300 welcome bonus. That first day, I earned Ksh 450 just by watching videos and answering quizzes for 3 hours.</p>
+                    </div>
+                    
+                    <h2>Week 1: Learning the Ropes</h2>
+                    <p>During my first week, I focused on understanding the platform and experimenting with different earning methods:</p>
+                    <ul>
+                        <li><strong>Day 1-3:</strong> Focused on trivia quizzes and video watching - Earned Ksh 400-600 daily</li>
+                        <li><strong>Day 4-5:</strong> Added ad clicking and social media activities - Earned Ksh 650-750 daily</li>
+                        <li><strong>Day 6-7:</strong> Tried gaming and movie watching - Earned Ksh 800-900 daily</li>
+                    </ul>
+                    
+                    <p><strong>Week 1 Total: Ksh 4,850</strong></p>
+                    
+                    <h2>Month 1: Building Momentum</h2>
+                    <p>By the end of my first month, I had established a routine and was consistently earning Ksh 800-1,200 daily. I discovered that article writing was my strength, often earning Ksh 500-800 per article.</p>
+                    
+                    <table class="earnings-table">
+                        <thead>
+                            <tr>
+                                <th>Week</th>
+                                <th>Daily Average</th>
+                                <th>Weekly Total</th>
+                                <th>Key Activities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Week 1</td>
+                                <td>Ksh 693</td>
+                                <td>Ksh 4,850</td>
+                                <td>Learning basics</td>
+                            </tr>
+                            <tr>
+                                <td>Week 2</td>
+                                <td>Ksh 950</td>
+                                <td>Ksh 6,650</td>
+                                <td>Added article writing</td>
+                            </tr>
+                            <tr>
+                                <td>Week 3</td>
+                                <td>Ksh 1,150</td>
+                                <td>Ksh 8,050</td>
+                                <td>Gaming tournaments</td>
+                            </tr>
+                            <tr>
+                                <td>Week 4</td>
+                                <td>Ksh 1,300</td>
+                                <td>Ksh 9,100</td>
+                                <td>Optimized routine</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p><strong>Month 1 Total: Ksh 28,650</strong></p>
+                    
+                    <h2>Months 2-3: Scaling Up</h2>
+                    <p>With confidence and experience, I started participating in e-tournaments and focusing more on high-value activities. I also began helping others, which qualified me for agent bonuses.</p>
+                    
+                    <h3>My Daily Routine (Month 3)</h3>
+                    <ul>
+                        <li><strong>6:00 AM - 8:00 AM:</strong> Trivia quizzes and video watching while preparing breakfast</li>
+                        <li><strong>10:00 AM - 12:00 PM:</strong> Article writing (2-3 articles)</li>
+                        <li><strong>2:00 PM - 4:00 PM:</strong> Gaming sessions and tournaments</li>
+                        <li><strong>7:00 PM - 9:00 PM:</strong> Social media activities and movie watching</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>💰 Income Breakdown (Month 3)</h4>
+                        <ul>
+                            <li>Daily activities: Ksh 25,000</li>
+                            <li>Weekly agent bonus: Ksh 3,500</li>
+                            <li>Tournament winnings: Ksh 2,800</li>
+                            <li><strong>Total: Ksh 31,300</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <h2>Key Success Factors</h2>
+                    
+                    <h3>1. Consistency is Everything</h3>
+                    <p>I treated this like a real job. Every day, regardless of how I felt, I dedicated at least 4-5 hours to earning activities.</p>
+                    
+                    <h3>2. Focus on Your Strengths</h3>
+                    <p>I discovered I was good at article writing and chess. I focused 60% of my time on these high-earning activities.</p>
+                    
+                    <h3>3. Continuous Learning</h3>
+                    <p>I studied trivia topics, improved my writing skills, and learned gaming strategies. Investment in skills pays off quickly.</p>
+                    
+                    <h3>4. Time Management</h3>
+                    <p>I balanced earning activities with my responsibilities as a mother and small business owner. Planning was crucial.</p>
+                    
+                    <h2>Challenges I Faced</h2>
+                    
+                    <h3>Internet Connectivity</h3>
+                    <p>Sometimes slow internet affected my productivity. I solved this by switching to a more reliable provider and having a backup plan.</p>
+                    
+                    <h3>Time Management</h3>
+                    <p>Balancing family, business, and online earning was challenging initially. I created a strict schedule and stuck to it.</p>
+                    
+                    <h3>Skeptical Friends and Family</h3>
+                    <p>Some people didn't believe it was real until I showed them my bank statements. Now many of them have joined too!</p>
+                    
+                    <h2>My Current Status</h2>
+                    <p>Six months later, I'm consistently earning Ksh 30,000-35,000 monthly. This income has:</p>
+                    <ul>
+                        <li>Allowed me to expand my small business</li>
+                        <li>Cover my children's school fees without stress</li>
+                        <li>Build an emergency savings fund</li>
+                        <li>Improve our family's quality of life</li>
+                    </ul>
+                    
+                    <h2>Advice for Beginners</h2>
+                    
+                    <div class="highlight-box">
+                        <h4>📝 Mary's Top Tips</h4>
+                        <ol>
+                            <li><strong>Start small:</strong> Don't try to do everything at once. Master 2-3 activities first.</li>
+                            <li><strong>Be patient:</strong> Your earnings will grow as you gain experience and efficiency.</li>
+                            <li><strong>Stay organized:</strong> Keep track of your activities and earnings daily.</li>
+                            <li><strong>Join the community:</strong> Connect with other earners for tips and motivation.</li>
+                            <li><strong>Withdraw regularly:</strong> Don't let money accumulate; withdraw and use it wisely.</li>
+                        </ol>
+                    </div>
+                    
+                    <h2>Conclusion</h2>
+                    <p>Helalink Agencies has transformed my life and given me financial independence I never thought possible. The opportunity is real, and with dedication and smart work, anyone can achieve similar or even better results.</p>
+                    
+                    <p>If you're reading this and wondering whether to start, my advice is simple: take the leap. The Ksh 500 investment is the best decision I ever made.</p>
+                    
+                    <p>Ready to start your own success story? <a href="index.html#register" style="color: var(--primary-color); font-weight: 600;">Join Helalink Agencies today</a> and begin your journey to financial freedom!</p>
+                    
+                    <p><em>Mary Wanjiku is a successful Helalink Agencies member and mother of two from Nairobi. She continues to earn consistently while managing her growing small business.</em></p>
+                `
+            },
+            'getting-started': {
+                title: 'Getting Started Guide for Beginners',
+                subtitle: 'Everything you need to know to start earning today',
+                author: 'Support Team',
+                date: 'August 20, 2025',
+                readingTime: '10 min read',
+                content: `
+                    <p>Welcome to Helalink Agencies! This comprehensive guide will walk you through everything you need to know to start earning money online today. Whether you're completely new to online earning or just new to our platform, this guide is for you.</p>
+                    
+                    <h2>What is Helalink Agencies?</h2>
+                    <p>Helalink Agencies is Kenya's premier online earning platform that allows you to make money through various simple activities using just your smartphone or laptop. Our platform offers multiple income streams including:</p>
+                    
+                    <ul>
+                        <li>Answering trivia quizzes</li>
+                        <li>Watching videos (TikTok, YouTube, Movies)</li>
+                        <li>Clicking advertisements</li>
+                        <li>Playing online games</li>
+                        <li>Writing articles</li>
+                        <li>Social media activities</li>
+                        <li>Participating in tournaments</li>
+                        <li>Daily spinning activities</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>🎯 Our Promise</h4>
+                        <p>With consistent effort, you can earn Ksh 700-1000 daily. Many of our active members exceed this target and earn Ksh 25,000-35,000 monthly.</p>
+                    </div>
+                    
+                    <h2>Step 1: Registration Process</h2>
+                    
+                    <h3>What You Need</h3>
+                    <ul>
+                        <li>Smartphone or laptop with internet connection</li>
+                        <li>Valid email address</li>
+                        <li>Mobile phone number</li>
+                        <li>Ksh 500 for account activation</li>
+                    </ul>
+                    
+                    <h3>Registration Steps</h3>
+                    <ol>
+                        <li><strong>Visit our registration page:</strong> Click on "Register Now" on our homepage</li>
+                        <li><strong>Fill in your details:</strong> Provide accurate information including name, email, phone, and county</li>
+                        <li><strong>Verify your account:</strong> Check your email for verification link</li>
+                        <li><strong>Make payment:</strong> Pay Ksh 500 activation fee via M-Pesa or bank transfer</li>
+                        <li><strong>Account activation:</strong> Your account will be activated within 5 minutes of payment</li>
+                        <li><strong>Welcome bonus:</strong> Receive your Ksh 300 welcome bonus automatically</li>
+                    </ol>
+                    
+                    <div class="highlight-box">
+                        <h4>💡 Pro Tip</h4>
+                        <p>Use accurate information during registration. This ensures smooth withdrawals and helps us provide better support when needed.</p>
+                    </div>
+                    
+                    <h2>Step 2: Understanding the Dashboard</h2>
+                    
+                    <p>Once your account is activated, you'll access your personal dashboard with the following sections:</p>
+                    
+                    <h3>Main Dashboard Elements</h3>
+                    <ul>
+                        <li><strong>Balance Overview:</strong> Shows current earnings and available balance</li>
+                        <li><strong>Daily Tasks:</strong> List of available earning activities</li>
+                        <li><strong>Activity History:</strong> Track of completed tasks and earnings</li>
+                        <li><strong>Withdrawal Section:</strong> Request money transfers to your account</li>
+                        <li><strong>Referral Center:</strong> Invite friends and earn bonuses</li>
+                        <li><strong>Support Center:</strong> Get help and ask questions</li>
+                    </ul>
+                    
+                    <h2>Step 3: Your First Earning Activities</h2>
+                    
+                    <h3>Day 1 Recommended Activities</h3>
+                    <p>Start with these beginner-friendly activities on your first day:</p>
+                    
+                    <table class="earnings-table">
+                        <thead>
+                            <tr>
+                                <th>Activity</th>
+                                <th>Time Needed</th>
+                                <th>Potential Earnings</th>
+                                <th>Difficulty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Watch 10 TikTok videos</td>
+                                <td>20 minutes</td>
+                                <td>Ksh 150-250</td>
+                                <td>Very Easy</td>
+                            </tr>
+                            <tr>
+                                <td>Answer 5 trivia quizzes</td>
+                                <td>15 minutes</td>
+                                <td>Ksh 250-500</td>
+                                <td>Easy</td>
+                            </tr>
+                            <tr>
+                                <td>Click 20 advertisements</td>
+                                <td>10 minutes</td>
+                                <td>Ksh 200-400</td>
+                                <td>Very Easy</td>
+                            </tr>
+                            <tr>
+                                <td>Daily spin activity</td>
+                                <td>2 minutes</td>
+                                <td>Ksh 25-500</td>
+                                <td>Very Easy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p><strong>Total First Day Potential: Ksh 625-1,650</strong></p>
+                    
+                    <h3>Detailed Activity Guide</h3>
+                    
+                    <h4>1. Trivia Quizzes</h4>
+                    <p><strong>How it works:</strong> Answer multiple-choice questions on various topics including general knowledge, sports, entertainment, and current affairs.</p>
+                    <ul>
+                        <li><strong>Earning rate:</strong> Ksh 50-100 per quiz</li>
+                        <li><strong>Tips:</strong> Read questions carefully, use your general knowledge, learn from wrong answers</li>
+                        <li><strong>Best time:</strong> Morning when your mind is fresh</li>
+                    </ul>
+                    
+                    <h4>2. Video Watching</h4>
+                    <p><strong>Platforms available:</strong> TikTok, YouTube, Facebook Reels, Instagram Reels</p>
+                    <ul>
+                        <li><strong>Earning rate:</strong> Ksh 15-30 per video</li>
+                        <li><strong>Requirements:</strong> Watch complete video, interact if required</li>
+                        <li><strong>Tips:</strong> Choose videos you actually enjoy watching</li>
+                    </ul>
+                    
+                    <h4>3. Advertisement Clicking</h4>
+                    <p><strong>How it works:</strong> Click on sponsored ads and visit advertiser websites for a specified duration.</p>
+                    <ul>
+                        <li><strong>Earning rate:</strong> Ksh 10-20 per click</li>
+                        <li><strong>Requirements:</strong> Stay on advertiser site for minimum time</li>
+                        <li><strong>Tips:</strong> Keep multiple tabs open to be more efficient</li>
+                    </ul>
+                    
+                    <h4>4. Online Gaming</h4>
+                    <p><strong>Games available:</strong> Chess, Draughts, Puzzle games, Strategy games</p>
+                    <ul>
+                        <li><strong>Earning rate:</strong> Ksh 100-400 per game/tournament</li>
+                        <li><strong>Skill level:</strong> Beginner to advanced options available</li>
+                        <li><strong>Tips:</strong> Practice in free mode before playing for money</li>
+                    </ul>
+                    
+                    <h2>Step 4: Building Your Daily Routine</h2>
+                    
+                    <h3>Beginner's Weekly Schedule</h3>
+                    
+                    <h4>Week 1: Learning Phase</h4>
+                    <ul>
+                        <li><strong>Goal:</strong> Earn Ksh 500-800 daily</li>
+                        <li><strong>Focus:</strong> Master basic activities (videos, quizzes, ads)</li>
+                        <li><strong>Time commitment:</strong> 3-4 hours daily</li>
+                    </ul>
+                    
+                    <h4>Week 2: Expansion Phase</h4>
+                    <ul>
+                        <li><strong>Goal:</strong> Earn Ksh 700-1000 daily</li>
+                        <li><strong>Focus:</strong> Add gaming and social media activities</li>
+                        <li><strong>Time commitment:</strong> 4-5 hours daily</li>
+                    </ul>
+                    
+                    <h4>Week 3-4: Optimization Phase</h4>
+                    <ul>
+                        <li><strong>Goal:</strong> Earn Ksh 800-1200 daily</li>
+                        <li><strong>Focus:</strong> Optimize routine, try article writing</li>
+                        <li><strong>Time commitment:</strong> 4-6 hours daily</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>📅 Sample Daily Schedule</h4>
+                        <ul>
+                            <li><strong>6:00-7:00 AM:</strong> Trivia quizzes with morning coffee</li>
+                            <li><strong>9:00-10:00 AM:</strong> Video watching during commute/break</li>
+                            <li><strong>12:00-1:00 PM:</strong> Ad clicking during lunch break</li>
+                            <li><strong>6:00-8:00 PM:</strong> Gaming and social media activities</li>
+                            <li><strong>8:00-9:00 PM:</strong> Movie watching while relaxing</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>Step 5: Withdrawal Process</h2>
+                    
+                    <h3>Withdrawal Options</h3>
+                    <ul>
+                        <li><strong>M-Pesa:</strong> Instant transfer (most popular)</li>
+                        <li><strong>Bank Transfer:</strong> 1-2 hours processing</li>
+                        <li><strong>Airtel Money:</strong> Instant transfer</li>
+                    </ul>
+                    
+                    <h3>Withdrawal Requirements</h3>
+                    <ul>
+                        <li>Minimum withdrawal: Ksh 100</li>
+                        <li>Account must be verified</li>
+                        <li>Consistent activity for 3+ days</li>
+                    </ul>
+                    
+                    <h3>How to Withdraw</h3>
+                    <ol>
+                        <li>Go to "Withdrawal" section in your dashboard</li>
+                        <li>Select withdrawal method</li>
+                        <li>Enter amount and recipient details</li>
+                        <li>Confirm transaction with PIN</li>
+                        <li>Receive money within stated timeframe</li>
+                    </ol>
+                    
+                    <h2>Step 6: Maximizing Your Earnings</h2>
+                    
+                    <h3>Weekly Bonuses</h3>
+                    <ul>
+                        <li><strong>Consistency Bonus:</strong> Extra 10% for daily activity</li>
+                        <li><strong>Performance Bonus:</strong> Additional earnings for top performers</li>
+                        <li><strong>Referral Bonus:</strong> Earn when friends join and activate</li>
+                    </ul>
+                    
+                    <h3>Special Opportunities</h3>
+                    <ul>
+                        <li><strong>Weekend Tournaments:</strong> Higher prizes available</li>
+                        <li><strong>Holiday Specials:</strong> Increased earning rates</li>
+                        <li><strong>Monthly Challenges:</strong> Complete targets for extra bonuses</li>
+                    </ul>
+                    
+                    <h2>Common Beginner Mistakes to Avoid</h2>
+                    
+                    <div class="highlight-box">
+                        <h4>⚠️ Avoid These Mistakes</h4>
+                        <ol>
+                            <li><strong>Rushing through activities:</strong> Take time to do tasks properly</li>
+                            <li><strong>Ignoring instructions:</strong> Read task requirements carefully</li>
+                            <li><strong>Inconsistent activity:</strong> Daily participation is key to success</li>
+                            <li><strong>Not tracking progress:</strong> Monitor your daily earnings and improvements</li>
+                            <li><strong>Giving up too quickly:</strong> Success takes time and consistent effort</li>
+                        </ol>
+                    </div>
+                    
+                    <h2>Getting Support</h2>
+                    
+                    <h3>Available Support Channels</h3>
+                    <ul>
+                        <li><strong>WhatsApp Support:</strong> +254 700 000 000 (24/7)</li>
+                        <li><strong>Email Support:</strong> support@helalink.co.ke</li>
+                        <li><strong>Telegram Community:</strong> @HelalinkAgencies</li>
+                        <li><strong>In-app Help Center:</strong> Access guides and FAQs</li>
+                    </ul>
+                    
+                    <h3>Community Resources</h3>
+                    <ul>
+                        <li>Join our Telegram group for tips and updates</li>
+                        <li>Follow our social media for earning tips</li>
+                        <li>Attend weekly online training sessions</li>
+                        <li>Connect with successful members for mentorship</li>
+                    </ul>
+                    
+                    <h2>Success Mindset</h2>
+                    
+                    <h3>Key Principles for Success</h3>
+                    <ul>
+                        <li><strong>Treat it seriously:</strong> Approach this as a real income source</li>
+                        <li><strong>Be consistent:</strong> Daily activity leads to daily income</li>
+                        <li><strong>Learn continuously:</strong> Improve your skills and knowledge</li>
+                        <li><strong>Stay patient:</strong> Earnings grow with experience and efficiency</li>
+                        <li><strong>Help others:</strong> Successful referrals boost your income</li>
+                    </ul>
+                    
+                    <h2>Ready to Start?</h2>
+                    <p>You now have all the information needed to begin your earning journey with Helalink Agencies. Remember, every expert was once a beginner, and every success story started with a single step.</p>
+                    
+                    <p>The opportunity is real, the platform is legitimate, and thousands of Kenyans are already earning substantial income. Your financial transformation starts with registration.</p>
+                    
+                    <p><a href="index.html#register" style="color: var(--primary-color); font-weight: 600; font-size: 1.2rem;">Click here to register now and start earning today!</a></p>
+                    
+                    <div class="highlight-box">
+                        <h4>🚀 Quick Start Checklist</h4>
+                        <ol>
+                            <li>✅ Register your account</li>
+                            <li>✅ Pay Ksh 500 activation fee</li>
+                            <li>✅ Verify your email</li>
+                            <li>✅ Explore your dashboard</li>
+                            <li>✅ Complete your first 5 activities</li>
+                            <li>✅ Make your first withdrawal</li>
+                            <li>✅ Join our community groups</li>
+                            <li>✅ Set daily earning goals</li>
+                        </ol>
+                    </div>
+                    
+                    <p><em>Welcome to Helalink Agencies - Your journey to financial freedom starts here!</em></p>
+                `
+            }
+        };
+
+        // Get post ID from URL
+        function getPostId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('post') || 'earning-tips';
+        }
+
+        // Load blog post content
+        function loadBlogPost() {
+            const postId = getPostId();
+            const post = blogPosts[postId];
+            
+            if (!post) {
+                // If post not found, load default
+                loadBlogPost('earning-tips');
+                return;
+            }
+            
+            // Update page title
+            document.title = `${post.title} - Helalink Agencies`;
+            
+            // Update header content
+            document.getElementById('postTitle').textContent = post.title;
+            document.getElementById('postSubtitle').textContent = post.subtitle;
+            
+            // Update article content
+            document.getElementById('articleTitle').textContent = post.title;
+            document.getElementById('articleDate').textContent = post.date;
+            document.getElementById('articleAuthor').textContent = post.author;
+            document.getElementById('readingTime').textContent = post.readingTime;
+            
+            // Load article content
+            document.getElementById('articleContent').innerHTML = post.content;
+            
+            // Update share buttons
+            updateShareButtons(post.title);
+        }
+
+        // Update share buttons with current article
+        function updateShareButtons(title) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(`Check out this article: ${title}`);
+            
+            document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+            document.getElementById('shareWhatsApp').href = `https://wa.me/?text=${text} ${url}`;
+            document.getElementById('shareTelegram').href = `https://t.me/share/url?url=${url}&text=${text}`;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBlogPost();
+            
+            // Mobile navigation
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+        });
+
+        // Handle navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
