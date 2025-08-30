@@ -2,6 +2,81 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
+// Top Stories Sliding Animation
+let isStoriesPaused = false;
+const storiesTrack = $('#storiesTrack');
+const pausePlayBtn = $('#pausePlayBtn');
+
+if (pausePlayBtn && storiesTrack) {
+    pausePlayBtn.addEventListener('click', () => {
+        isStoriesPaused = !isStoriesPaused;
+        
+        if (isStoriesPaused) {
+            storiesTrack.style.animationPlayState = 'paused';
+            pausePlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+        } else {
+            storiesTrack.style.animationPlayState = 'running';
+            pausePlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+    });
+}
+
+// Dark Mode Toggle
+const darkModeToggle = $('.dark-mode-toggle');
+let isDarkMode = false;
+
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        isDarkMode = !isDarkMode;
+        
+        if (isDarkMode) {
+            document.body.style.filter = 'invert(1) hue-rotate(180deg)';
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            document.body.style.filter = 'none';
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    });
+}
+
+// Story Card Interactions
+$$('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const storyCard = btn.closest('.story-card');
+        const storyTitle = storyCard.querySelector('h3').textContent;
+        
+        // Animate button click
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            btn.style.transform = 'scale(1)';
+        }, 150);
+        
+        console.log('Reading more about:', storyTitle);
+        // Here you would typically navigate to the full story
+    });
+});
+
+$$('.join-now-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Animate button click
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            btn.style.transform = 'scale(1)';
+        }, 150);
+        
+        // Scroll to registration or show registration modal
+        const registerBtn = $('.register-btn');
+        if (registerBtn) {
+            registerBtn.click();
+        }
+        
+        console.log('Joining now clicked');
+    });
+});
+
 // Navigation Dots Functionality
 const dots = $$('.dot');
 if (dots.length > 0) {
@@ -119,9 +194,60 @@ const createMobileMenu = () => {
 // Handle window resize
 window.addEventListener('resize', createMobileMenu);
 
+// Initialize infinite scrolling for stories
+const initInfiniteStories = () => {
+    const storiesTrack = $('#storiesTrack');
+    if (storiesTrack) {
+        const originalStories = Array.from(storiesTrack.children);
+        
+        // Duplicate stories for seamless infinite scroll
+        originalStories.forEach(story => {
+            const clone = story.cloneNode(true);
+            storiesTrack.appendChild(clone);
+        });
+        
+        // Add event listeners to cloned buttons
+        $$('.read-more-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const storyCard = btn.closest('.story-card');
+                const storyTitle = storyCard.querySelector('h3').textContent;
+                
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = 'scale(1)';
+                }, 150);
+                
+                console.log('Reading more about:', storyTitle);
+            });
+        });
+        
+        $$('.join-now-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = 'scale(1)';
+                }, 150);
+                
+                const registerBtn = $('.register-btn');
+                if (registerBtn) {
+                    registerBtn.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                console.log('Joining now clicked');
+            });
+        });
+    }
+};
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Helalink Agencies website loaded successfully!');
+    console.log('Trendqash Agencies website loaded successfully!');
+    
+    // Initialize infinite stories
+    initInfiniteStories();
     
     // Set first dot as active initially
     const firstDot = $('.dot');

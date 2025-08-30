@@ -12,54 +12,11 @@ body {
     overflow-x: hidden;
 }
 
-/* Top Navigation */
-.top-nav {
-    background: #20B2AA;
-    padding: 10px 0;
-}
-
-.nav-links {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.nav-item {
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    font-weight: 500;
-    transition: background 0.3s ease;
-}
-
-.nav-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-}
-
-.nav-register-btn {
-    background: #4722b5;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.nav-register-btn:hover {
-    background: #3a1b8f;
-    transform: translateY(-2px);
-}
-
-/* Main Header */
+/* Main Header Section */
 .main-header {
-    background: #fff;
-    padding: 20px 0;
-    border-bottom: 2px solid #eee;
+    background: #f8f9fa;
+    padding: 30px 0;
+    text-align: left;
 }
 
 .header-container {
@@ -68,11 +25,216 @@ body {
     padding: 0 20px;
 }
 
-.logo h1 {
-    color: #20B2AA;
+.main-title {
+    color: #333;
     font-size: 2.5rem;
     font-weight: 700;
-    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.header-description {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0;
+}
+
+/* Navigation Bar */
+.navigation-bar {
+    background: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4b0082;
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.register-btn {
+    background: #4b0082;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+    background: #3a0066;
+    transform: translateY(-1px);
+}
+
+/* Top Stories Section */
+.top-stories {
+    background: linear-gradient(135deg, #20B2AA 0%, #48D1CC 100%);
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.stories-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.stories-label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.label-text {
+    background: #4b0082;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.stories-slider {
+    margin-left: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stories-track {
+    display: flex;
+    gap: 20px;
+    animation: slideLeft 30s linear infinite;
+    width: fit-content;
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.story-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.story-card h3 {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.story-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.story-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.read-more-btn,
+.join-now-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.read-more-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.read-more-btn:hover {
+    background: #545b62;
+}
+
+.join-now-btn {
+    background: #4b0082;
+    color: white;
+}
+
+.join-now-btn:hover {
+    background: #3a0066;
+}
+
+.pause-play-btn {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.pause-play-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Hero Section */
@@ -308,9 +470,9 @@ body {
         font-size: 3rem;
     }
     
-    .nav-links {
+    .nav-items {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
     
     .section-image,
@@ -321,6 +483,36 @@ body {
     .stats {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .header-description {
+        font-size: 1rem;
+    }
+    
+    .stories-label {
+        position: static;
+        text-align: center;
+        margin-bottom: 15px;
+        transform: none;
+    }
+    
+    .stories-slider {
+        margin-left: 0;
+    }
+    
+    .story-card {
+        min-width: 250px;
+    }
+    
+    .pause-play-btn {
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+        transform: none;
     }
 }
 
@@ -389,6 +581,11 @@ html {
     border-radius: 2px;
 }
 
+/* Animation Controls */
+.stories-track.paused {
+    animation-play-state: paused;
+}
+
 /* Loading Animation */
 @keyframes pulse {
     0% {
@@ -404,4 +601,11 @@ html {
 
 .income-badge:hover {
     animation: pulse 1s infinite;
+}
+
+/* Story Card Hover Effects */
+.story-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
